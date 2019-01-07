@@ -24,3 +24,14 @@ Here's the code for to generate your preview URL:
 ```bash
 http://${server.port.8080}
 ```
+
+## Local Run Command
+
+Running locally is simpler. Just navigate to the your flask project in the command line, and then run the following commands:
+```bash
+export FLASK_APP=main.py
+export FLASK_DEBUG=1
+flask run
+```
+
+You can also simplify this to just `flask run` if you use a `.flaskenv` file to hold the flask app and the debug settings. 
