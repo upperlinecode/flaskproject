@@ -1,6 +1,13 @@
 # Flask App Template
 
-## Run Command:
+## Setup:
+
+Install flask:
+```bash
+sudo pip install flask
+```
+
+## Codenvy Run Command:
 
 Here's the you'll want to run in your custom command:
 ```bash
@@ -11,6 +18,7 @@ export FLASK_RUN_PORT=8080
 export FLASK_DEBUG=1
 flask run
 ```
+If you clone this directly, you'll need 
 
 Here's the code for to generate your preview URL:
 ```bash
