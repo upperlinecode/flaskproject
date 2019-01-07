@@ -18,7 +18,7 @@ export FLASK_RUN_PORT=8080
 export FLASK_DEBUG=1
 flask run
 ```
-If you clone this directly, you'll need 
+If you clone this directly, your `<your-directory-name-here>` will be `flaskproject`.
 
 Here's the code for to generate your preview URL:
 ```bash
