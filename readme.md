@@ -34,4 +34,4 @@ export FLASK_DEBUG=1
 flask run
 ```
 
-You can also simplify this to just `flask run` if you use a `.flaskenv` file to hold the flask app and the debug settings. 
+You can also simplify this to just `flask run` if you `pip install python-dotenv` and then use the `.flaskenv` file to hold the flask app and the debug settings.  
