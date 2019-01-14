@@ -1,13 +1,13 @@
 # Flask App Template
 
-## Setup:
+## Quick Setup:
 
-#### Quick Setup
-
-Install flask:
+Install flask & dotenv packages:
 ```bash
-sudo pip install flask
+pip install flask
+pip install python-dotenv
 ```
+[troubleshooting](#troubleshooting-package-installation)
 
 Code to clone and break reference:
 ```bash
@@ -21,9 +21,7 @@ Code to run flask:
 flask run
 ```
 
-## Running the template
-
-##### Virtual Environments (optional)
+## Virtual Environments (optional)
 
 If you're running this locally, you may want to run this program inside a virtual environment - that way changes to your Python configuration don't persist and impact other python programs on your machine.
 
@@ -44,7 +42,7 @@ deactivate
 
 If you're using a virtual environment like Codenvy, the virtual environment produces more problems than it solves, so consider skipping this step.
 
-##### Python packages
+## Python packages
 
 The only packages you need to run are `flask` (for obvious reasons), and `python-dotenv` which allows us to store configuration information in the files `.env` and `.flaskenv`.
 
@@ -60,7 +58,7 @@ If this has worked, and python-dotenv is working, then running a flask applicati
 flask run
 ```
 
-##### Troubleshooting package installation
+### Troubleshooting package installation
 
 If your IDE throws errors on either of these commands saying that you aren't authorized, your account may not be authorized to install packages on the IDE you're using, so try adding the 'switch user and do' command ('sudo' for short):
 ```bash
