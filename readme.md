@@ -2,6 +2,13 @@
 
 ## Quick Setup:
 
+Code to clone and break reference:
+```bash
+git clone https://github.com/upperlinecode/flaskproject
+cd flaskproject
+rm -rf .git
+```
+
 Install flask & dotenv packages:
 ```bash
 pip install flask
@@ -9,11 +16,14 @@ pip install python-dotenv
 ```
 [troubleshooting](#troubleshooting-package-installation)
 
-Code to clone and break reference:
+Code to configure your flask app (run once each time you open a new terminal - only necessary if python-dotenv won't install):
 ```bash
-git clone https://github.com/upperlinecode/flaskproject
-cd flaskproject
-rm -rf .git
+export FLASK_APP=main.py
+export FLASK_RUN_HOST=0.0.0.0
+export FLASK_RUN_PORT=8080
+export FLASK_DEBUG=1
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
 ```
 
 Code to run flask:
