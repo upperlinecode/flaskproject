@@ -9,14 +9,7 @@ cd flaskproject
 rm -rf .git
 ```
 
-Install flask & dotenv packages:
-```bash
-pip install flask
-pip install python-dotenv
-```
-[troubleshooting](#troubleshooting-package-installation)
-
-Code to configure your flask app (run once each time you open a new terminal - only necessary if python-dotenv won't install):
+Code to configure your flask app (run once each time you open a new terminal):
 ```bash
 export FLASK_APP=main.py
 export FLASK_RUN_HOST=0.0.0.0
@@ -30,6 +23,14 @@ Code to run flask:
 ```bash
 flask run
 ```
+
+To save time on the environment variables, some IDEs will let you install the python-dotenv package, which loads these up every time:
+```bash
+pip install python-dotenv
+```
+[troubleshooting](#troubleshooting-package-installation)
+
+
 
 ## Virtual Environments (optional)
 
