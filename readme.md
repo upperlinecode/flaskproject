@@ -9,6 +9,11 @@ cd flaskproject
 rm -rf .git
 ```
 
+Code to install Flask (only necessary once):
+```bash
+pip install flask
+```
+
 Code to configure your flask app (run once each time you open a new terminal):
 ```bash
 export FLASK_APP=main.py
@@ -22,17 +27,17 @@ Code to run flask:
 flask run
 ```
 
-To save time on the environment variables, some IDEs will let you install the python-dotenv package, which loads these up every time:
+**If you're developing in the cs50 IDE, ignore this next part.**
+If you're developing locally, you can sometimes save time on the environment variables, by installing the python-dotenv package, which automatically loads the settings we're currently setting with `export`:
 ```bash
 pip install python-dotenv
 ```
 [troubleshooting](#troubleshooting-package-installation)
 
 
-
 ## Virtual Environments (optional)
 
-If you're running this locally, you may want to run this program inside a virtual environment - that way changes to your Python configuration don't persist and impact other python programs on your machine.
+If you're running this locally, you may want to run this program inside a virtual environment - that way changes to your Python configuration don't persist and impact other python programs on your machine. We've also beta tested virtual environments on Codenvy, where it seems to work intermittently - we kept track of some [Codenvy tricks](codenvy.md) to make that easier.
 
 To create a virtual environment (you only need to do this once), run this code in terminal:
 ```bash
@@ -53,65 +58,27 @@ If you're using a virtual environment like Codenvy, the virtual environment prod
 
 ## Python packages
 
-The only packages you need to run are `flask` (for obvious reasons), and `python-dotenv` which allows us to store configuration information in the files `.env` and `.flaskenv`.
+To start, the only package you need to run is `flask` for (hopefully) obvious reasons.
 
-To install these packages, run this code.
+To install flask, run this code in terminal.
 ```bash
 pip install flask
-pip install python-dotenv
 ```
-Remember, if you're using a virtual environment, these packages will only be installed IN the virtual environment (which is part of why we don't recommend it if you don't need it - students will accidentally forget where they've configured different settings).
-
-If this has worked, and python-dotenv is working, then running a flask application is pretty simple:
-```bash
-flask run
-```
+Remember, if you're using a virtual environment, these packages will only be installed IN the virtual environment (which is part of why we don't recommend it in cs50 where we won't need it - students will accidentally forget where they've configured different settings).
 
 ### Troubleshooting package installation
 
 If your IDE throws errors on either of these commands saying that you aren't authorized, your account may not be authorized to install packages on the IDE you're using, so try adding the 'switch user and do' command ('sudo' for short):
 ```bash
 sudo pip install flask
-sudo pip install python-dotenv
 ```
 
-If you encountered errors with the python-dotenv package, we can still configure those settings manually. You'll need to run these commands once each time you open a terminal:
+The settings will not be stored between sessions, so every time you open a new terminal, you'll need to run these commands, which are stored in the `run-variables.md` file for your convenience:
 ```bash
 export FLASK_APP=main.py
 export FLASK_RUN_HOST=0.0.0.0
 export FLASK_RUN_PORT=8080
 export FLASK_DEBUG=1
-export LC_ALL=C.UTF-8
-export LANG=C.UTF-8
 ```
 
 After that you should be able to execute the `flask run` command normally.
-
-## Codenvy Run Command:
-
-Here's the you'll want to run in your custom command:
-```bash
-cd <your-directory-name-here>
-export FLASK_APP=main.py
-export FLASK_RUN_HOST=0.0.0.0
-export FLASK_RUN_PORT=8080
-export FLASK_DEBUG=1
-flask run
-```
-If you clone this directly, your `<your-directory-name-here>` will be `flaskproject`.
-
-Here's the code for to generate your preview URL:
-```bash
-http://${server.port.8080}
-```
-
-## Local Run Command
-
-Running locally is simpler. Just navigate to the your flask project in the command line, and then run the following commands:
-```bash
-export FLASK_APP=main.py
-export FLASK_DEBUG=1
-flask run
-```
-
-You can also simplify this to just `flask run` if you `pip install python-dotenv` and then use the `.flaskenv` file to hold the flask app and the debug settings.  
