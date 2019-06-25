@@ -41,7 +41,7 @@ If you're running this locally, you may want to run this program inside a virtua
 
 To create a virtual environment (you only need to do this once), run this code in terminal:
 ```bash
-python -m venv venv
+python3 -m venv venv
 ```
 
 To ENTER your virtual environment (you'll need to do this every time you open up a new terminal), run this code:
@@ -70,7 +70,7 @@ Remember, if you're using a virtual environment, these packages will only be ins
 
 If your IDE throws errors on either of these commands saying that you aren't authorized, your account may not be authorized to install packages on the IDE you're using, so try adding the 'switch user and do' command ('sudo' for short):
 ```bash
-sudo pip install flask
+pip install --user flask
 ```
 
 The settings will not be stored between sessions, so every time you open a new terminal, you'll need to run these commands, which are stored in the `run-variables.md` file for your convenience:
