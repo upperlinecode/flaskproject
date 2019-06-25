@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, request
-from models import model, formopener
+from app.models import model, formopener
 
 @app.route('/')
 @app.route('/index')
