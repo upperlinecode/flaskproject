@@ -1,91 +1,60 @@
 # Flask App Template
 
-## Quick Setup:
+1. [Quick Setup for Cloud Shell](#setup)
+2. [Running the App](#run)
 
-Code to clone and break reference:
-```bash
-git clone https://github.com/upperlinecode/flaskproject
-cd flaskproject
-rm -rf .git
-```
+## Quick Setup for Cloud Shell<a id="setup"></a>
 
-Code to install Flask (only necessary once):
-```bash
-pip3 install flask
-```
+Before we can even really get started with a Flask application, we need to get a few things configured in our Cloud Shell environments. Follow these steps to install Flask and make sure that installation sticks.
 
-Code to configure your flask app (you may need to set these once each time you open a new terminal):
-```bash
-export FLASK_APP=main.py
-export FLASK_RUN_HOST=0.0.0.0
-export FLASK_RUN_PORT=8080
-export FLASK_DEBUG=1
-```
+#### Setup Step 1
 
-Code to run flask:
-```bash
-flask run
-```
+In Cloud Shell, there are a few settings that we need to set manually. In particular, we want to install the Flask microframework specifically using Python3, and change a few of the default settings.
 
-**If you're developing in the cs50 IDE, ignore this next part.**
-If you're developing locally, you can probably save time on the environment variables, by installing the [python-dotenv](https://pypi.org/project/python-dotenv/) package, which automatically loads the settings we're currently setting with `export`:
-```bash
-pip3 install python-dotenv
-```
+If you type `python --version`, it will show an older version of Python (2.7) that is popular, but that officially went out of date as of January 1, 2020, and therefore will not be used in this class.
 
-If that installation works, you should be able to create a file called `.env` and add the `export` statements above to it, that way these configurations won't need to be made every time. 
+Slack out this code, and have them copy paste it into their Cloud Shell terminals.
 
-[troubleshooting](#troubleshooting-package-installation)
-
-## Virtual Environments (optional)
-
-If you're running this locally, you will likely want to run this program inside a virtual environment - that way changes to your Python configuration don't persist and impact other Python programs on your machine. If you're running this program in a remote environment like Cloud Shell, Cloud9, or cs50, adding a virtual environment within those containers may complicate things more than helping them. 
-
-To create a virtual environment (you only need to do this once), run this code in terminal:
-```bash
-python3 -m venv venv
-```
-
-To ENTER your virtual environment (you'll need to do this every time you open up a new terminal), run this code:
-```bash
-. venv/bin/activate
-```
-
-To EXIT your virtual environment (you'll want to do this if you decide to change projects - think of it like shutting this one down), you just need one word:
-```bash
-deactivate
-```
-
-If you're using a virtual environment like Codenvy, the virtual environment produces more problems than it solves, so consider skipping this step.
-
-## Python packages
-
-To start, the only package you need to run is `flask` for (hopefully) obvious reasons.
-
-To install flask, run this code in terminal.
-```bash
-pip3 install flask
-```
-Remember, if you're using a virtual environment, these packages will only be installed IN the virtual environment (which is part of why we don't recommend it in cs50 where we won't need it - students will accidentally forget where they've configured different settings).
-
-### Troubleshooting package installation
-
-If your IDE throws errors on either of these commands saying that you aren't authorized, your account may not be authorized to install packages on the IDE you're using. There are two ways to work around this. The first is by adding the user flag:
-```bash
-pip3 install --user flask
-```
-The other way around this is to try adding the 'switch user and do' command ('sudo' for short):
 ```bash
 sudo pip3 install flask
 ```
 
+You will likely get a prompt to upgrade Pip - we recommend avoiding that step as we have tested the default version that comes packaged with Cloud Shell, but may not have tested the most recent version at the time of your reading this guide.   
 
-The settings will not be stored between sessions, so every time you open a new terminal, you'll need to run these commands, which are stored in the `run-variables.md` file for your convenience:
+You can confirm that the installation has worked by typing `flask --version`. If Flask is found to be running with Python 3.7 or higher, step 1 is complete.
+
+#### Setup Step 2
+
+We also want to set up debug mode for our Flask applications. This is a setting that makes sure the server we run in terminal is listening for any changes to our file - that way if we make a change, the server can automatically restart, meaning we always work from the latest version.
+
+This level of convenience does *not* play nicely with Cloud Shell's autosave feature, so **be sure to disable autosave in the "File" menu**.
+
+Once that's done, you can setup debug mode for Flask applications with this line of code:
+
 ```bash
-export FLASK_APP=main.py
-export FLASK_RUN_HOST=0.0.0.0
-export FLASK_RUN_PORT=8080
 export FLASK_DEBUG=1
 ```
 
-After that you should be able to execute the `flask run` command normally.
+#### Setup Step 3
+
+This is great, but Cloud Shell does not persist package installations or global settings like these. Every time you leave it idle for more then a few hours, Cloud Shell will stop running. For the most part, that is a good thing! it saves energy and helps keep Cloud Shell free. But the bad news is that that means you'll have to reinstall Flask each time you start up the environment.
+
+The following three lines of code will set up a script to do this for us in the future, once each time Cloud Shell resets.
+
+```bash
+touch ~/.customize_environment
+echo 'sudo pip3 install flask' >> ~/.customize_environment
+echo 'export FLASK_DEBUG=1' >> ~/.customize_environment
+```
+
+This creates a hidden file called `.customize_environment` that Cloud Shell always looks for when starting an environment. If you have the file, which you now do, then it runs whatever lines of code are written there for you behind the scenes as part of its startup process.
+
+#### Setup Conclusions
+
+Any time you find yourself installing a new Python package as time goes on, be sure to consider the following recommendations:
+* Instead of running `pip install _______`, you'll need to run `sudo pip3 install _______` because in this virtual environment, you'll want to install as part of Cloud Shell's Python 3 (instead of the default Python 2).
+* If you want that package to persist (to remain installed after you log out each evening), be sure to add that to the `.customize_environment` file. You can do this either by using the command `echo 'sudo pip3 install ______' >> ~/.customize_environment`, or by opening the customization script using `cloudshell open ~/.customize_environment` to modify your startup script manually.
+
+## Running the App<a id="run"></a>
+
+Run this app by navigating to the directory where it is housed and running `flask run`. Then click the IP address in terminal to be redirected to the location where the app is running. 
