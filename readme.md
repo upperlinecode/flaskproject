@@ -65,12 +65,12 @@ Run this app by navigating to the directory where it is housed and running `flas
 Here's everything inside our Flask template. Files a first-time learner should pay attention to are listed in bold.
 
 flaskproject
-├── Procfile - Used for deployment.
+├── Procfile - Ignore. Used for deployment.
 ├── **app.py** - This is the main file for our app.
 ├── **model.py** - This is where we will write the logic of our app.
-├── readme.md
+├── readme.md - That's this file!
 ├── **requirements.txt** - Used for deployment to say what packages are needed.
-├── runtime.txt - Used for deployment.
+├── runtime.txt - Ignore. Used for deployment.
 ├── **static** - This is where we house assets like images and stylesheets.
 │   ├── **css** - Put stylesheets here.
 │   │   └── style.css
