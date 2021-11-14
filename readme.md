@@ -14,7 +14,7 @@ In Cloud Shell, there are a few settings that we need to set manually. In partic
 
 If you type `python --version`, it will show an older version of Python (2.7) that is popular, but that officially went out of date as of January 1, 2020, and therefore will not be used in this class.
 
-However, as of November, 2012, if you type `flask --version`, it will show a fairly recent version of Flask (2.0) which is connected to a much more current version of Python (3.7). This is great news, because it should simplify our work pretty significantly. 
+However, as of November 2021, if you type `flask --version`, it will show a fairly recent version of Flask (2.0) which is connected to a much more current version of Python (3.7). This is great news, because it should simplify our work pretty significantly. 
 
 ###### Do the following ONLY if your Cloud Shell shows a version of Flask with Python 2
 
