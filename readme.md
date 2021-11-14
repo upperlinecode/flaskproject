@@ -62,7 +62,7 @@ Run this app by navigating to the directory where it is housed and running `flas
 
 ## Anatomy of the app<a id="anatomy"></a>
 
-Here's everything inside our Flask template. A first-time learner should pay special attention to the app.py, the model.py, the templates folder, and the static folder.
+Here's everything inside our Flask template. A first-time learner should really only start by looking at the **app.py**, the **model.py**, the **templates** folder, and the **static** folder. Almost everything else operates more behind the scenes, and can be a later focus. 
 
 <pre>
 flaskproject
