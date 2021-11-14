@@ -8,23 +8,29 @@
 
 Before we can even really get started with a Flask application, we need to get a few things configured in our Cloud Shell environments. Follow these steps to install Flask and make sure that installation sticks.
 
-#### Setup Step 1
+#### Setup Step 1: Confirm Versions
 
 In Cloud Shell, there are a few settings that we need to set manually. In particular, we want to install the Flask microframework specifically using Python3, and change a few of the default settings.
 
 If you type `python --version`, it will show an older version of Python (2.7) that is popular, but that officially went out of date as of January 1, 2020, and therefore will not be used in this class.
 
-Slack out this code, and have them copy paste it into their Cloud Shell terminals.
+However, as of November, 2012, if you type `flask --version`, it will show a fairly recent version of Flask (2.0) which is connected to a much more current version of Python (3.7). This is great news, because it should simplify our work pretty significantly. 
 
-```bash
-sudo pip3 install flask
-```
+###### Do the following ONLY if your Cloud Shell shows a version of Flask with Python 2
 
-You will likely get a prompt to upgrade Pip - we recommend avoiding that step as we have tested the default version that comes packaged with Cloud Shell, but may not have tested the most recent version at the time of your reading this guide.   
-
-You can confirm that the installation has worked by typing `flask --version`. If Flask is found to be running with Python 3.7 or higher, step 1 is complete.
-
-#### Setup Step 2
+> The easiest solution would be to [reset your Cloud Shell](https://cloud.google.com/shell/docs/resetting-cloud-shell), but beware that you'll lose any work on Cloud Shell that wasn't also pushed up to GitHub. 
+>       
+> If you'd rather, you can manually install a current version of flask. You may need to uninstall Flask in its current form as well, which can 
+> 
+> ```bash
+> sudo pip3 install flask
+> ```
+> 
+> You will likely get a prompt to upgrade Pip - we recommend avoiding that step as we have tested the default version that comes packaged with Cloud Shell, but may > not have tested the most recent version at the time of your reading this guide.   
+> 
+> You can confirm that the installation has worked by typing `flask --version`. If Flask is found to be running with Python 3.7 or higher, step 1 is complete.
+ 
+#### Setup Step 2: Set up Debug Mode
 
 We also want to set up debug mode for our Flask applications. This is a setting that makes sure the server we run in terminal is listening for any changes to our file - that way if we make a change, the server can automatically restart, meaning we always work from the latest version.
 
@@ -36,19 +42,20 @@ Once that's done, you can setup debug mode for Flask applications with this line
 export FLASK_DEBUG=1
 ```
 
-#### Setup Step 3
+#### Setup Step 3: Write a Startup Script (Optional)
 
-This is great, but Cloud Shell does not persist package installations or global settings like these. Every time you leave it idle for more then a few hours, Cloud Shell will stop running. For the most part, that is a good thing! it saves energy and helps keep Cloud Shell free. But the bad news is that that means you'll have to reinstall Flask each time you start up the environment.
+This is great, but Cloud Shell does not persist package installations or global settings like these. Every time you leave it idle for more then a few hours, Cloud Shell will stop running. For the most part, that is a good thing! it saves energy and helps keep Cloud Shell free. But the bad news is that that means you'll need to rerun any setup commands like `export FLASK_DEBUG=1` each time the environment starts up. 
 
-The following three lines of code will set up a script to do this for us in the future, once each time Cloud Shell resets.
+The following two lines of code will set up a script to do this for us in the future, once each time Cloud Shell resets.
 
 ```bash
 touch ~/.customize_environment
-echo 'sudo pip3 install flask' >> ~/.customize_environment
 echo 'export FLASK_DEBUG=1' >> ~/.customize_environment
 ```
 
 This creates a hidden file called `.customize_environment` that Cloud Shell always looks for when starting an environment. If you have the file, which you now do, then it runs whatever lines of code are written there for you behind the scenes as part of its startup process.
+
+You can echo any other setup commands you want to that file, or you can open it and edit it yourself with `cloudshell open ~/.customize_environment`.
 
 #### Setup Conclusions
 
@@ -58,7 +65,7 @@ Any time you find yourself installing a new Python package as time goes on, be s
 
 ## Running the App<a id="run"></a>
 
-Run this app by navigating to the directory where it is housed and running `flask run`. Then click the IP address in terminal to be redirected to the location where the app is running.
+Run this app by navigating to the directory where it is housed and running `flask run`. Then click the IP address in terminal to be redirected to the location where the app is running. 
 
 ## Anatomy of the app<a id="anatomy"></a>
 
