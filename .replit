@@ -1,2 +1,2 @@
 language = "bash"
-run = "python3 app.py"
+run = "python3 replitwrapper.py"
